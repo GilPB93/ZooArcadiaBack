@@ -21,10 +21,10 @@ class Avis
     private ?string $comment = null;
 
     #[ORM\Column]
-    private ?bool $isVisible = null;
-
-    #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?bool $isVisible = null;
 
     public function getId(): ?int
     {
@@ -55,18 +55,6 @@ class Avis
         return $this;
     }
 
-    public function isVisible(): ?bool
-    {
-        return $this->isVisible;
-    }
-
-    public function setVisible(bool $isVisible): static
-    {
-        $this->isVisible = $isVisible;
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->createdAt;
@@ -75,6 +63,18 @@ class Avis
     public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function isVisible(): ?bool
+    {
+        return $this->isVisible;
+    }
+
+    public function setVisible(?bool $isVisible): static
+    {
+        $this->isVisible = $isVisible;
 
         return $this;
     }
