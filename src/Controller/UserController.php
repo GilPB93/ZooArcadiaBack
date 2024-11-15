@@ -29,7 +29,7 @@ class UserController extends AbstractController
     public function new(Request $request) : JsonResponse
     {
         $user = $this->serializer->deserialize($request->getContent(), User::class, 'json');
-        $user->setCreatedAt(new \DateTimeImmutable());
+        $user->setcreatedAt(new \DateTimeImmutable());
 
         $this->manager->persist($user);
         $this->manager->flush();
